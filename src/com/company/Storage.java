@@ -49,15 +49,19 @@ public class Storage {
 
     public void printList(Class<?> figureClass){
         List list = GetFigureList(figureClass);
-        if(list == null || list.isEmpty() || !(list.get(0) instanceof IFigure)){
-            int counter = 0;
-            for(Object figure : list){
-                counter++;
-                System.out.println((counter) + ".\n" + ((IFigure)figure).getInfo() + "\n");
-            }
+        if(list == null || list.isEmpty() || !(list.get(0) instanceof IFigure))
+        {
+            System.out.println("Error! Can't print a figures list!");
         }
         else
-            System.out.println("Error! Can't print a figures list!");
+        {
+            int counter = 0;
+            for (Object f : list)
+            {
+                counter++;
+                System.out.println((counter) + ".\n" + ((IFigure)f).getInfo() + "\n");
+            }
+        }
     }
 
     public void clear()
